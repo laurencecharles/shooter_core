@@ -12,7 +12,12 @@ public enum Screens {
         }
     },
   
-    
+    SCROLL {
+        @Override
+        protected Screen getScreenInstance() {
+            return new Scroll();
+        }
+    },
     
     MAIN_MENU {
         @Override

@@ -131,7 +131,8 @@ public class MainMenuScreen extends CustomScreen {
     	instruct = new TextButton("Instructions", textButtonStyle);
     	instruct.addListener(new ChangeListener() {
     		public void changed (ChangeEvent event, Actor actor) {
-    			ScreenManager.getInstance().show("INSTRUCTIONS", Screens.INSTRUCTIONS); //switch to "Instructions" activity
+//    			ScreenManager.getInstance().show("INSTRUCTIONS", Screens.INSTRUCTIONS); //switch to "Instructions" activity
+    			ScreenManager.getInstance().show("SCROLL", Screens.SCROLL); //switch to "Instructions" activity
     		}
     	});
     	

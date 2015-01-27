@@ -73,6 +73,7 @@ public class Session3 extends CustomScreen{
 		
 		setName("CREATE_SESSION_THREE");	//Sets the current activity name
     	
+		
 		//Implements the device's Back button functionality on current activity
 		temp = new Stage(){
     		@Override
@@ -201,7 +202,7 @@ public class Session3 extends CustomScreen{
     	back = new TextButton("Back", textButtonStyle);
     	back.addListener(new ChangeListener() {
     		public void changed (ChangeEvent event, Actor actor) {
-    			ScreenManager.getInstance().show("CREATE_SESSION_TWO", Screens. CREATE_SESSION_TWO);	//switch to "Session Configuration 2" activity
+    			ScreenManager.getInstance().show("CREATE_SESSION_TWO", Screens.CREATE_SESSION_TWO);	//switch to "Session Configuration 2" activity
     		}
     	});
     	

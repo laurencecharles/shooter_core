@@ -73,9 +73,8 @@ public class IntroScreen extends CustomScreen {
 	
 	@Override
 	public void show() {
-		Timer.schedule(new ScreenSwitchTask(Screens.MAIN_MENU), 2f);	//schedule to show main menu screen after 3 seconds
+		Timer.schedule(new ScreenSwitchTask(Screens.MAIN_MENU), 2f);	//schedule to show main menu screen after 3 seconds	}
 	}
-
 	
 	@Override
 	//Disposes resources to mitigate memory leaks

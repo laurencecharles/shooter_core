@@ -32,7 +32,7 @@ public class ResourceManager {
 	private static Image backImg;
 	
 	/********Font Generator*********/
-	private  static FreeTypeFontGenerator generator;
+	private static FreeTypeFontGenerator generator;
 	
 	/***Skins & Associated Atlas***/
 	private static Skin defaultSkin;

@@ -137,55 +137,55 @@ public class Scroll extends CustomScreen{
         
         //Instantiation and configuration of "Next" button
         next = new TextButton("Next", textButtonStyle);
-//        next.addListener(new ChangeListener() {
-//    		public void changed (ChangeEvent event, Actor actor) {
-//    			if (validatePlayerEntries()==true){	//if player names have been entered appropriately
-//	    			if (DataManager.getOptionSelected()==1){	//if custom setting have been selected
-//	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
-//	    												DataManager.getSessionDate(), DataManager.getSessionDuration(),
-//	    												DataManager.getCycleTime(),
-//	    												DataManager.getVisibilityDuration(), DataManager.getIntervalDuration(), 
-//	    												DataManager.getSessionTargetCount(), DataManager.getSessionParticipantCount(),
-//	    												0,0,0,0,0,0,0,0
-//	    											);	//insert data into session table
-//	    			}
-//	    			else if (DataManager.getOptionSelected()==2){	//if easy settings have been selected
-//	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
-//														DataManager.getSessionDate(), DataManager.getOptimalGameDuration(),
-//														DataManager.getCycleTime(),
-//														DataManager.getOptimalVisibilityDuration(), DataManager.getOptimalIntervalDuration(), 
-//														DataManager.getOptimalTargetCount(), DataManager.getSessionParticipantCount(),
-//														0,0,0,0,0,0,0,0
-//	    											);	//insert data into session table
-//	    			}
-//	    			else if (DataManager.getOptionSelected()==3){	//if difficult setting has been selected
-//	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
-//														DataManager.getSessionDate(), DataManager.getDifficultGameDuration(),
-//														DataManager.getCycleTime(),
-//														DataManager.getDifficultVisibilityDuration(), DataManager.getDifficultIntervalDuration(), 
-//														DataManager.getDifficultTargetCount(), DataManager.getSessionParticipantCount(),
-//														0,0,0,0,0,0,0,0
-//	    											);	//insert data into session table
-//	    			}
-//	    			populatePlayerTable();	//inserts data into player database
-//    			}
-//	    		else{	//if there is an error in input data, a dialog box providing appropriate feedback is generated
-//	    			new Dialog("", skin, "dialog") {
-//    					protected void result (Object object) {
-//    					}
-//    				}.text("Please enter all participants").button("Ok", true).show(stage);
-//	    		}    		
-//    			ScreenManager.getInstance().show("CONTROL_PANEL", Screens.CONTROL_PANEL);	//switch to "Control Panel" activity
-//    		}
-//    	});
+        next.addListener(new ChangeListener() {
+    		public void changed (ChangeEvent event, Actor actor) {
+    			if (validatePlayerEntries()==true){	//if player names have been entered appropriately
+	    			if (DataManager.getOptionSelected()==1){	//if custom setting have been selected
+	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
+	    												DataManager.getSessionDate(), DataManager.getSessionDuration(),
+	    												DataManager.getCycleTime(),
+	    												DataManager.getVisibilityDuration(), DataManager.getIntervalDuration(), 
+	    												DataManager.getSessionTargetCount(), DataManager.getSessionParticipantCount(),
+	    												0,0,0,0,0,0,0,0
+	    											);	//insert data into session table
+	    			}
+	    			else if (DataManager.getOptionSelected()==2){	//if easy settings have been selected
+	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
+														DataManager.getSessionDate(), DataManager.getOptimalGameDuration(),
+														DataManager.getCycleTime(),
+														DataManager.getOptimalVisibilityDuration(), DataManager.getOptimalIntervalDuration(), 
+														DataManager.getOptimalTargetCount(), DataManager.getSessionParticipantCount(),
+														0,0,0,0,0,0,0,0
+	    											);	//insert data into session table
+	    			}
+	    			else if (DataManager.getOptionSelected()==3){	//if difficult setting has been selected
+	    				DatabaseManager.insertSession(	DataManager.getSessionID(), DataManager.getActiveAdminID(), 
+														DataManager.getSessionDate(), DataManager.getDifficultGameDuration(),
+														DataManager.getCycleTime(),
+														DataManager.getDifficultVisibilityDuration(), DataManager.getDifficultIntervalDuration(), 
+														DataManager.getDifficultTargetCount(), DataManager.getSessionParticipantCount(),
+														0,0,0,0,0,0,0,0
+	    											);	//insert data into session table
+	    			}
+	    			populatePlayerTable();	//inserts data into player database
+    			}
+	    		else{	//if there is an error in input data, a dialog box providing appropriate feedback is generated
+	    			new Dialog("", skin, "dialog") {
+    					protected void result (Object object) {
+    					}
+    				}.text("Please enter all participants").button("Ok", true).show(stage);
+	    		}    		
+    			ScreenManager.getInstance().show("CONTROL_PANEL", Screens.CONTROL_PANEL);	//switch to "Control Panel" activity
+    		}
+    	});
         
         //Instantiation and configuration of "Back" button
     	back = new TextButton("Back", textButtonStyle);
-//    	back.addListener(new ChangeListener() {
-//    		public void changed (ChangeEvent event, Actor actor) {
-//    			ScreenManager.getInstance().show("CREATE_SESSION_TWO", Screens.CREATE_SESSION_TWO);	//switch to "Session Configuration 2" activity
-//    		}
-//    	});
+    	back.addListener(new ChangeListener() {
+    		public void changed (ChangeEvent event, Actor actor) {
+    			ScreenManager.getInstance().show("CREATE_SESSION_TWO", Screens.CREATE_SESSION_TWO);	//switch to "Session Configuration 2" activity
+    		}
+    	});
     	
 
         nameTable = new Table();

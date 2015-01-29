@@ -15,6 +15,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -160,41 +161,57 @@ public class Session1 extends CustomScreen{
 
         //Instantiates tables and attaches labels, text fields and buttons
         mainTable = new Table();
+        mainTable.setFillParent(true);
         mainTable.add(titleLabel);
         mainTable.row();
         
         table0 = new Table();
-        table0.add(sessionIDLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(sessionIDField).width(sessionIDLabel.getWidth());
+        table0.add(sessionIDLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(sessionIDField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(dateLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(dateField).width(sessionIDLabel.getWidth());
+        table0.add(dateLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(dateField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(durationLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(durationField).width(sessionIDLabel.getWidth());
+        table0.add(durationLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(durationField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(cycleTimeLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(cycleTimeField).width(sessionIDLabel.getWidth());
+        table0.add(cycleTimeLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(cycleTimeField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(targetCountLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(targetCountField).width(sessionIDLabel.getWidth());
+        table0.add(targetCountLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(targetCountField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(visibilityLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(visibilityField).width(sessionIDLabel.getWidth());
+        table0.add(visibilityLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(visibilityField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add( maxIntervalLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(maxIntervalField).width(sessionIDLabel.getWidth());
+        table0.add( maxIntervalLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(maxIntervalField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
 
-        table0.add(participantCountLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(participantCountField).width(sessionIDLabel.getWidth());
+        table0.add(participantCountLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom((Gdx.graphics.getWidth()/50)*8);
+        table0.add(participantCountField).width(sessionIDLabel.getWidth()).spaceBottom((Gdx.graphics.getWidth()/50)*8);
         table0.row();
+        
+        //Additional Widgets
+        Label blankLabel = new Label("Blank", formLabelSkin); 
+        blankLabel.setVisible(false);
+        TextField blankField = new TextField ("", textfieldstyle);
+        blankField.setVisible(false);
+        table0.add(blankLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(blankField).width(sessionIDLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.row();			
+
+
+
+        ScrollPane scroller = new ScrollPane(table0);
+        mainTable.add(scroller).fill().expand();
+        mainTable.row();
         
         //Instantiation and configuration of "Next" button
         next = new TextButton("Next", textButtonStyle);
@@ -268,16 +285,11 @@ public class Session1 extends CustomScreen{
     		}
     	});
     	
-    	table0.add(next).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
-    	table0.add(back).spaceTop(Gdx.graphics.getWidth()/50);
-    	
-    	mainTable.add(table0);
-    	mainTable.pack();
-  	
-    	//Centers table in screen
-    	int xPos = (int) (   (Gdx.graphics.getWidth()/2) - (mainTable.getPrefWidth() / 2 )     );
-    	int yPos = (int) (   (Gdx.graphics.getHeight()/2) - (mainTable.getPrefHeight() / 2 )     );
-    	mainTable.setPosition(xPos, yPos);	
+    	Table table1 = new Table();
+    	table1.add(next).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
+    	table1.add(back).spaceTop(Gdx.graphics.getWidth()/50);
+   
+    	mainTable.add(table1);
     	
     	stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
     	stage.addActor(mainTable);						//attaches main table to the activity

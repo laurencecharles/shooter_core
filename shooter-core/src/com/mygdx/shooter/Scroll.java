@@ -135,61 +135,8 @@ public class Scroll extends CustomScreen{
         textButtonStyle.pressedOffsetX = -3;
         textButtonStyle.font= button;
         
-        //Test Configuration
-        nameTable = new Table();
-//        titleLabel = new Label("Enter Participants", titleSkin);	//title label instantiation
-//        nameTable.add(titleLabel);
-//        nameTable.row();
-        for(int i=0 ; i< participants ; i++){
-        	textFields.add(new TextField("participant " + i, textfieldstyle));
-        	nameTable.add((TextField)textFields.get(i)).width(Gdx.graphics.getWidth()/5).spaceBottom(Gdx.graphics.getWidth()/50);
-        	if (i<participants-1){
-        		nameTable.row();
-        	}
-        }
-        ScrollPane scroller = new ScrollPane(nameTable);
-        Table mainTable = new Table();
-        mainTable.setFillParent(true);
-        titleLabel = new Label("Enter Participants", titleSkin);	//title label instantiation
-        mainTable.add(titleLabel);
-        mainTable.row();
-        
-        
-        mainTable.add(scroller).fill().expand();
-        stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
-        stage.addActor(mainTable);
-        
-        
-        
-        
-        
-        
-//        titleLabel = new Label("Enter Participants", titleSkin);	//title label instantiation
-//        
-//        vGroup = new VerticalGroup().space(Gdx.graphics.getWidth()/40).pad(5).fill();
-//        nameTable = new Table().padTop(Gdx.graphics.getWidth()/50).padBottom(Gdx.graphics.getWidth()/50);
-//        
-//        //Creates a number of text fields for the specified number of players
-//        
-//        for(int i=0 ; i< participants ; i++){
-//        	textFields.add(new TextField("participant " + i, textfieldstyle));
-//        	nameTable.add((TextField)textFields.get(i)).width(Gdx.graphics.getWidth()/5).spaceBottom(Gdx.graphics.getWidth()/50);
-//        	if (i<participants-1){
-//        		nameTable.row();
-//        	}
-//        }
-        
-        
-
-//        //Instantiates tables and attaches labels, text fields and buttons
-//        mainTable = new Table();
-//        mainTable.add(titleLabel);
-//        mainTable.row();
-//        mainTable.add(nameTable);
-//        mainTable.row();
-        
         //Instantiation and configuration of "Next" button
-//        next = new TextButton("Next", textButtonStyle);
+        next = new TextButton("Next", textButtonStyle);
 //        next.addListener(new ChangeListener() {
 //    		public void changed (ChangeEvent event, Actor actor) {
 //    			if (validatePlayerEntries()==true){	//if player names have been entered appropriately
@@ -233,27 +180,48 @@ public class Scroll extends CustomScreen{
 //    	});
         
         //Instantiation and configuration of "Back" button
-//    	back = new TextButton("Back", textButtonStyle);
+    	back = new TextButton("Back", textButtonStyle);
 //    	back.addListener(new ChangeListener() {
 //    		public void changed (ChangeEvent event, Actor actor) {
 //    			ScreenManager.getInstance().show("CREATE_SESSION_TWO", Screens.CREATE_SESSION_TWO);	//switch to "Session Configuration 2" activity
 //    		}
 //    	});
     	
-//    	buttonTable = new Table();
-//    	buttonTable.add(next).spaceRight(Gdx.graphics.getWidth()/40);
-//    	buttonTable.add(back);
-//    	
-//    	mainTable.add(buttonTable);
-//    	mainTable.pack();
-//    	
-//		//Centers table in screen 	
-//    	int xPos = (int) (Gdx.graphics.getWidth() - mainTable.getPrefWidth()) / 2;
-//    	int yPos = (int) (Gdx.graphics.getHeight() - mainTable.getPrefHeight()) / 2;
-//    	mainTable.setPosition(xPos, yPos);
-//    	
-//    	stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
-//    	stage.addActor(mainTable);						//attaches main table to the activity
+
+        nameTable = new Table();
+        int upperLimit = participants+4;
+        
+        for(int i=0 ; i< upperLimit ; i++){
+        	TextField temp = null;
+        	temp = new TextField("participant " + i, textfieldstyle);
+        	if (i>=participants){
+        		temp.setVisible(false);
+        	}
+        	textFields.add(temp);
+        	nameTable.add((TextField)textFields.get(i)).width(Gdx.graphics.getWidth()/5).spaceBottom(Gdx.graphics.getWidth()/50);
+        	if (i<upperLimit-1){
+        		nameTable.row();
+        	}
+        	
+        }
+        
+        ScrollPane scroller = new ScrollPane(nameTable);
+        Table mainTable = new Table();
+        mainTable.setFillParent(true);
+        titleLabel = new Label("Enter Participants", titleSkin);	//title label instantiation
+        mainTable.add(titleLabel);
+        mainTable.row();
+        
+        
+        mainTable.add(scroller).fill().expand();
+        mainTable.row();
+        Table buttonTable = new Table();
+    	buttonTable.add(next).spaceRight(Gdx.graphics.getWidth()/40);
+    	buttonTable.add(back);
+    	
+    	mainTable.add(buttonTable);
+        stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
+        stage.addActor(mainTable);
 	}
 	 
 	

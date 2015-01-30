@@ -168,10 +168,6 @@ public class AdminRegister0 extends CustomScreen{
         table0.add(password1Label).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom((Gdx.graphics.getWidth()/50)*8);
         table0.add(password1Field).width(adminidLabel.getWidth()*(float)1.5).spaceBottom((Gdx.graphics.getWidth()/50)*8);;
         table0.row();
-        
-//		mainTable.add(table0);
-//		mainTable.row();
-		
 		
 		//Additional Widgets
         Label blankLabel = new Label("Blank", formLabelSkin); 
@@ -182,8 +178,7 @@ public class AdminRegister0 extends CustomScreen{
         table0.add(blankField).width(password1Label.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();			
 
-
-
+        
         ScrollPane scroller = new ScrollPane(table0);
         mainTable.add(scroller).fill().expand();
         mainTable.row();

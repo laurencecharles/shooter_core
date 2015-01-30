@@ -158,6 +158,7 @@ public class AdminRegister1 extends CustomScreen{
             
         //Instantiates tables and attaches labels, text fields and buttons
         mainTable = new Table();
+        mainTable.setFillParent(true);
         mainTable.add(titleLabel);
         mainTable.row();
 
@@ -182,8 +183,8 @@ public class AdminRegister1 extends CustomScreen{
         table0.add(authorizerIDField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
       
-        table0.add(authorizerPassLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
-        table0.add(authorizerPassField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(authorizerPassLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom((Gdx.graphics.getWidth()/50)*8);
+        table0.add(authorizerPassField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom((Gdx.graphics.getWidth()/50)*8);
     	table0.row();
     	
     	

@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -171,30 +172,39 @@ public class AdminLogin extends CustomScreen {
     	   	
     	//Instantiates secondary table and attaches labels, text fields and buttons
     	mainTable = new Table();
+    	mainTable.setFillParent(true);
         mainTable.add(titleLabel);
         mainTable.row();
         
         table1 = new Table();
-        table1.add(idLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table1.add(idField).width(passwordLabel.getWidth());
+        table1.add(idLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table1.add(idField).width(passwordLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
         table1.row();
         
-        table1.add(passwordLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table1.add(passwordField).width(passwordLabel.getWidth());
+        table1.add(passwordLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom((Gdx.graphics.getWidth()/50)*8);
+        table1.add(passwordField).width(passwordLabel.getWidth()).spaceBottom((Gdx.graphics.getWidth()/50)*8);
         table1.row();
-   
         
-        table1.add(enter).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
-    	table1.add(back).spaceTop(Gdx.graphics.getWidth()/50);
+        //Additional Widgets
+        Label blankLabel = new Label("Blank", formLabelSkin); 
+        blankLabel.setVisible(false);
+        TextField blankField = new TextField ("", textfieldstyle);
+        blankField.setVisible(false);
+        table1.add(blankLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table1.add(blankField).width(passwordLabel.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
+        table1.row();
+        
+        ScrollPane scroller = new ScrollPane(table1);
+        mainTable.add(scroller).fill().expand();
+        mainTable.row();
+        
+        Table table2 = new Table();
+        
+        table2.add(enter).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
+    	table2.add(back).spaceTop(Gdx.graphics.getWidth()/50);
     	
-    	mainTable.add(table1);
-    	mainTable.pack();
+    	mainTable.add(table2);
     	
-    	//Centers the main table within the screen
-    	int xPos = (int) (   (Gdx.graphics.getWidth()/2) - (mainTable.getPrefWidth() / 2 )     );
-    	int yPos = (int) (   (Gdx.graphics.getHeight()/2) - (mainTable.getPrefHeight() / 2 )     );
-    	mainTable.setPosition(xPos, yPos);	
-
     	stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
     	stage.addActor(mainTable);	    				//attaches main table to the activity
     }

@@ -180,8 +180,8 @@ public class PlayerHome extends CustomScreen {
         mainTable.row();
         
         table = new Table();
-        table.add(nameLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table.add(nameField).width(nameLabel.getWidth()*(float)1.5);
+        table.add(nameLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table.add(nameField).width(nameLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table.row();
          
         table.add(enter).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);

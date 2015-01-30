@@ -133,7 +133,8 @@ public class PlayerInstructions extends CustomScreen {
         table.setFillParent(true);
         table.add(scroller).fill().expand();
         
-        stage.addActor(DataManager.getBackground());	//attaches background image to stage
+//        stage.addActor(DataManager.getBackground());	//attaches background image to stage
+        stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
         stage.addActor(table);							//attaches main table to the activity
     }
 

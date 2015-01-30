@@ -14,6 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -161,29 +162,45 @@ public class AdminRegister1 extends CustomScreen{
         mainTable.row();
 
         table0 = new Table();
-        table0.add(adminidLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(adminidField).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(adminidLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(adminidField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(lastnameLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(lastnameField).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(lastnameLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(lastnameField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(password0Label).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(password0Field).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(password0Label).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(password0Field).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(password1Label).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(password1Field).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(password1Label).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(password1Field).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
         
-        table0.add(authorizerIDLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(authorizerIDField).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(authorizerIDLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(authorizerIDField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
         table0.row();
       
-        table0.add(authorizerPassLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75);
-        table0.add(authorizerPassField).width(adminidLabel.getWidth()*(float)1.5);
+        table0.add(authorizerPassLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(authorizerPassField).width(adminidLabel.getWidth()*(float)1.5).spaceBottom(Gdx.graphics.getWidth()/50);
     	table0.row();
+    	
+    	
+		//Additional Widgets
+        Label blankLabel = new Label("Blank", formLabelSkin); 
+        blankLabel.setVisible(false);
+        TextField blankField = new TextField ("", textfieldstyle);
+        blankField.setVisible(false);
+        table0.add(blankLabel).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.add(blankField).width(password1Label.getWidth()).spaceBottom(Gdx.graphics.getWidth()/50);
+        table0.row();
+        
+        ScrollPane scroller = new ScrollPane(table0);
+        mainTable.add(scroller).fill().expand();
+        mainTable.row();
+    	
+        Table table1 = new Table();
     	
     	//Instantiation and configuration of "Register" button
         register = new TextButton("Confirm", textButtonStyle);
@@ -235,16 +252,10 @@ public class AdminRegister1 extends CustomScreen{
     		}
     	});
     	
-    	table0.add(register).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
-    	table0.add(cancel).spaceTop(Gdx.graphics.getWidth()/50);;
+    	table1.add(register).spaceTop(Gdx.graphics.getWidth()/50).spaceRight(Gdx.graphics.getWidth()/25);
+    	table1.add(cancel).spaceTop(Gdx.graphics.getWidth()/50);;
     	
-    	mainTable.add(table0);
-    	mainTable.pack();
-
-    	//Centers the main table within the screen
-    	int xPos = (int) (   (Gdx.graphics.getWidth()/2) - (mainTable.getPrefWidth() / 2 )     );
-    	int yPos = (int) (   (Gdx.graphics.getHeight()/2) - (mainTable.getPrefHeight() / 2 )     );
-    	mainTable.setPosition(xPos, yPos);
+    	mainTable.add(table1);
 
     	stage.addActor(ResourceManager.getBackImg());	//attaches background image to stage
     	stage.addActor(mainTable);						//attaches main table to the activity

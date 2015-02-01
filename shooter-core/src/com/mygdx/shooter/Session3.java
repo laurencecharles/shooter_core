@@ -27,6 +27,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
+import com.badlogic.gdx.scenes.scene2d.utils.Align;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.Scaling;
@@ -190,19 +191,34 @@ public class Session3 extends CustomScreen{
         nameTable = new Table();
         int upperLimit = participants+4;
         
-        for(int i=0 ; i< upperLimit ; i++){
+//        for(int i=0 ; i< upperLimit ; i++){
+//        	TextField temp = null;
+//        	temp = new TextField("participant " + i, textfieldstyle);
+//        	if (i>=participants){
+//        		temp.setVisible(false);
+//        	}
+//        	textFields.add(temp);
+//        	nameTable.add((TextField)textFields.get(i)).width(Gdx.graphics.getWidth()/5).spaceBottom(Gdx.graphics.getWidth()/50);
+//        	if (i<upperLimit-1){
+//        		nameTable.row();
+//        	}
+//        	
+//        }
+        
+        for(int i=0 ; i< participants ; i++){
         	TextField temp = null;
         	temp = new TextField("participant " + i, textfieldstyle);
-        	if (i>=participants){
-        		temp.setVisible(false);
-        	}
         	textFields.add(temp);
         	nameTable.add((TextField)textFields.get(i)).width(Gdx.graphics.getWidth()/5).spaceBottom(Gdx.graphics.getWidth()/50);
-        	if (i<upperLimit-1){
-        		nameTable.row();
-        	}
-        	
+        	nameTable.row();
         }
+        
+      //Additional Widgets
+        TextField blank = null;
+    	blank = new TextField("blank ", textfieldstyle);
+    	blank.setVisible(false);
+    	nameTable.add(blank).align(Align.left).spaceRight(Gdx.graphics.getWidth()/75).spaceBottom(Gdx.graphics.getWidth()/50).spaceTop((Gdx.graphics.getWidth()/50)*9);
+        nameTable.row();
         
         ScrollPane scroller = new ScrollPane(nameTable);
         Table mainTable = new Table();
